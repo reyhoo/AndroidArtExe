@@ -1,0 +1,1 @@
+include ':aidlClient', ':aidlcommon', ':aidlcommon', ':aidlservice'
