@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 public class ContactsFragment extends Fragment {
 
-    private static final String TAG = "ContactsFragment";
+    private static final String TAG = "ContactsFragment_";
 
     @Override
     public void onAttach(Context context) {

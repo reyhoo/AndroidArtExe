@@ -3,8 +3,11 @@ package com.example.administrator.scrollerdemo;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.Scroller;
+
+import com.nineoldandroids.animation.Animator;
 
 /**
  * Created by Administrator on 2016/10/9.
@@ -35,7 +38,6 @@ public class ScrollerButton extends Button {
         final int scrollY = getScrollY();
         final int deltaX = destX - scrollX;
         final int deltaY = destY - scrollY;
-
         ValueAnimator animator = ValueAnimator.ofInt(0,1).setDuration(1000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

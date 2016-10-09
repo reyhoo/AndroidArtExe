@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class SettingFragment extends Fragment {
-	private static final String TAG = "SettingFragment";
+	private static final String TAG = "SettingFragment_";
 
 	@Override
 	public void onAttach(Context context) {

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 public class NewsFragment extends Fragment {
 
-	private static final String TAG = "NewsFragment";
+	private static final String TAG = "NewsFragment_";
 
 	@Override
 	public void onAttach(Context context) {
