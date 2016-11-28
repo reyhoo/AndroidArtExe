@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.anima_7.MainActivity">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layoutAnimation="@anim/anim_layout"
+        android:layout_width="match_parent"
+        android:background="#fff4f7f9"
+        android:cacheColorHint="#000000"
+        android:divider="#dddbdb"
+        android:dividerHeight="1px"
+        android:listSelector="@android:color/transparent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+    <Button
+        android:id="@+id/btn"
+        android:text="你好"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+</LinearLayout>
