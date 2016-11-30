@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mListView = (ListView) findViewById(R.id.listView);
-        mListView.setVisibility(View.GONE);
         btn = (Button) findViewById(R.id.btn);
 
         List<String> list = new ArrayList<>();
