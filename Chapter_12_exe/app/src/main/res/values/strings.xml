@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Chapter_12_exe</string>
+    <item name="imageloader_uri" type="id"/>
+
+</resources>
