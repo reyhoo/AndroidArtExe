@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements AbsListView.OnScrollListener{
+public class MainActivity extends AppCompatActivity implements AbsListView.OnScrollListener {
     private static final String TAG = "MainActivity";
 
     private List<String> mUrList = new ArrayList<String>();
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
 
     private boolean mIsGridViewIdle = true;
     private int mImageWidth = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
         mImageGridView.setOnScrollListener(this);
 
     }
+
     private class ImageAdapter extends BaseAdapter {
         private LayoutInflater mInflater;
         private Drawable mDefaultBitmapDrawable;
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder = null;
             if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.image_list_item,parent, false);
+                convertView = mInflater.inflate(R.layout.image_list_item, parent, false);
                 holder = new ViewHolder();
                 holder.imageView = (ImageView) convertView.findViewById(R.id.image);
                 convertView.setTag(holder);
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
                 holder = (ViewHolder) convertView.getTag();
             }
             ImageView imageView = holder.imageView;
-            final String tag = (String)imageView.getTag();
+            final String tag = (String) imageView.getTag();
             final String uri = getItem(position);
             if (!uri.equals(tag)) {
                 imageView.setImageDrawable(mDefaultBitmapDrawable);
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
     private static class ViewHolder {
         public ImageView imageView;
     }
+
     private void initData() {
         String[] imageUrls = {
                 "http://b.hiphotos.baidu.com/zhidao/pic/item/a6efce1b9d16fdfafee0cfb5b68f8c5495ee7bd8.jpg",
@@ -137,13 +140,20 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
             mUrList.add(url);
         }
         int screenWidth = MyUtils.getScreenMetrics(this).widthPixels;
-        int space = (int)MyUtils.dp2px(this, 20f);
+        int space = (int) MyUtils.dp2px(this, 20f);
         mImageWidth = (screenWidth - space) / 3;
 
     }
 
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
+        //TODO 判断滑动停止时再刷新列表
+        if(AbsListView.OnScrollListener.SCROLL_STATE_IDLE == scrollState){
+            mIsGridViewIdle = true;
+            mImageAdapter.notifyDataSetChanged();
+        }else{
+            mIsGridViewIdle = false;
+        }
 
     }
 
