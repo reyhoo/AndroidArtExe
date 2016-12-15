@@ -1,15 +1,13 @@
 package com.example.administrator.chapter13_crashhandler;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "MainActivity_";
+    private static final String TAG = "SecondActivity_";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn:
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName(getApplicationContext(),SecondActivity.class));
-                startActivity(intent);
+                String line = null;
+                line.length();
                 break;
         }
     }
@@ -45,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         Log.i(TAG,"onResume");
     }
-
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
