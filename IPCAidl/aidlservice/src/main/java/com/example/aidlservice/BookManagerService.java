@@ -2,7 +2,9 @@ package com.example.aidlservice;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
@@ -29,6 +31,15 @@ public class BookManagerService extends Service {
     public IBookManager.Stub binder = new IBookManager.Stub() {
         @Override
         public List<Book> getBookList() throws RemoteException {
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(App.instance,MyActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    App.instance.startActivity(intent);
+                }
+            });
+
             return mBookList;
         }
 

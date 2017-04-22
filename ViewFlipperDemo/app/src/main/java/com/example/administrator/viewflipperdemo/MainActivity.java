@@ -1,6 +1,7 @@
 package com.example.administrator.viewflipperdemo;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -30,20 +31,23 @@ public class MainActivity extends Activity {
         vfContainer.addView(createView(1));
         vfContainer.addView(createView(2));
         vfContainer.addView(createView(3));
+
+
     }
 
-    private View createView(int index){
+    private View createView(int index) {
 //        TextView tv = new TextView(this);
 //        tv.setText("tv "+ index);
         ListView lv = new ListView(this);
-        List<String>list = new ArrayList<>();
-        for (int i = 0 ; i < 30 ; i ++){
-            list.add("lv"+index+":"+(i + 1));
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 30; i++) {
+            list.add("lv" + index + ":" + (i + 1));
         }
-        ArrayAdapter<String>adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         lv.setAdapter(adapter);
         return lv;
     }
+
     private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
 
 

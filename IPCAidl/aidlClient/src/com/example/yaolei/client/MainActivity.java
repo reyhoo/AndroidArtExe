@@ -83,13 +83,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         findViewById(R.id.addBook).setOnClickListener(this);
         findViewById(R.id.getList).setOnClickListener(this);
+        findViewById(R.id.toList).setOnClickListener(this);
         bindService();
     }
 
 
     @Override
     public void onClick(View v) {
-        if (mBookManager == null) return;
+//        if (mBookManager == null) return;
         switch (v.getId()) {
             case R.id.addBook:
                 Book book = new Book(1, "Hello");
@@ -110,6 +111,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     e.printStackTrace();
                     Log.i("aidlclient_", "aidlclient_:" + e);
                 }
+                break;
+            case R.id.toList:
+                Intent intent = new Intent(getApplicationContext(),MyListActivity.class);
+                startActivity(intent);
                 break;
         }
 
