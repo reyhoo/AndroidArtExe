@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private IBinder.DeathRecipient mDeathRecipient = new IBinder.DeathRecipient() {
         @Override
         public void binderDied() {
-            Toast.makeText(MainActivity.this, "binderDead", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MainActivity.this, "binderDead", Toast.LENGTH_SHORT).show();
 
             if (mBookManager == null) {
                 return;
